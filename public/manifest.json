@@ -1,21 +1,20 @@
 {
-    "manifest_version": 3,
-    "name": "LinkedIn Auto Connector",
-    "version": "1.0",
-    "permissions": ["activeTab", "scripting", "storage"],
-    "background": {
-      "service_worker": "background.js"
-    },
-    "action": {
-  "default_popup": "index.html",
-  "default_icon": "icon.png"
+  "manifest_version": 3,
+  "name": "LinkedIn Auto Connector",
+  "version": "1.0",
+  "description": "Automatically sends LinkedIn connection requests at intervals.",
+  "permissions": ["scripting", "storage", "activeTab"],
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": "icon.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.linkedin.com/*"],
+      "js": ["contentScript.js"]
+    }
+  ]
 }
-,
-    "content_scripts": [
-      {
-        "matches": ["https://www.linkedin.com/*"],
-        "js": ["contentScript.js"]
-      }
-    ]
-  }
-  
